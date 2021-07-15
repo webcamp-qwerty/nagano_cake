@@ -1,0 +1,2 @@
+class PublicAddressesController < ApplicationController
+end

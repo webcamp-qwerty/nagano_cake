@@ -1,0 +1,2 @@
+class PublicCartItemsController < ApplicationController
+end
