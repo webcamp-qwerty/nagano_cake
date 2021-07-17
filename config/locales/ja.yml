@@ -1,0 +1,15 @@
+ja:
+  enums:
+    orders:
+      payment_method:
+        credit_card: クレジットカード
+        bank_transfer: 銀行振込
+        
+ja:
+  enums:
+    orders:
+      order_status:
+        waiting: 入金待ち
+        confirming: 入金確認
+        producing: 発送準備中
+        sent: 発送済み

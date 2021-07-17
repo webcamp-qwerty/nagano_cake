@@ -8,7 +8,9 @@ Rails.application.routes.draw do
     post 'customer/confilm' => 'customers#confilm'
     patch 'customer/hide' => 'customers#hide'
     resources :addresses, except: [:new, :show]
-    resources :orders, except: [:destroy, :edit, :update]
+    resources :orders, except: [:destroy, :edit, :update]do
+      resources :order_items, only: [:create, :destroy]
+    end
     post 'order/confilm' => 'orders#confilm'
     get 'order/thanks' => 'orders#thanks'
     resources :cart_items, except: [:index, :edit, :new]
