@@ -33,8 +33,7 @@
   </span>
     <% end %>
   <span>
-    <%= link_to "退会する", '/customer/confirm', method: :POST, class: "btn btn-sm btn-danger" %>
-    <%# パスの指定だとネームエラーが出た。「customer_confirm_path」が定義されてない旨の内容だったが詳細不明。要確認。　%>
+    <%= link_to "退会する",customer_confirm_path , method: :POST, class: "btn btn-sm btn-danger" %>
   </span>
 </div>
 
