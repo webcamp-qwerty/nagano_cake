@@ -9,11 +9,5 @@ class Public::ItemsController < ApplicationController
     @item = Item.find(params[:id])
     @genres = Genre.all
   end
-  
-  def search
-  @items = Item.search(params[:keyword])
-  @keyword = params[:keyword]
-  render "index"
-  end
 
 end
