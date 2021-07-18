@@ -9,5 +9,7 @@ class Public::ItemsController < ApplicationController
     @item = Item.find(params[:id])
     @genres = Genre.all
   end
+  
+  
 
 end
