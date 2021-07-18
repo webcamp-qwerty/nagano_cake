@@ -35,6 +35,18 @@
       </div>
     </nav>
   </header>
+  
+  <div class="search-form">
+    <%= form_with url: search_path, method: :get, local: true do |f| %>
+      <%= f.text_field :keyword, value: @keyword %>
+      <%= f.submit "検索" %>
+    <% end %>
+  </div>
+  <div class="item-list">
+    <% @items.each do |item| %>
+      <%= item.name %>
+    <% end %>
+  </div>
 
 
   <body>

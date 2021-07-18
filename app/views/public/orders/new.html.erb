@@ -1,0 +1,20 @@
+<h3>注文情報入力</h3>
+<%= form_with model:@order,url: order_confilm_path, method: :post,local: true do |f| %>
+  <label>支払方法</label>
+  </br>
+  <%= f.radio_button :payment_method, :クレジットカード, checked: "checked" %>
+  <%= f.label :payment_method, 'クレジットカード' %>
+  </br>
+  <%= f.radio_button :payment_method, :銀行振込 %>
+  <%= f.label :payment_method, '銀行振込' %>
+  </br>
+  
+  <label>お届け先</label>
+  </br>
+  <%= f.radio_button :address, @customer.address %>
+  <%= f.label :address_customer_address, "〒#{@customer.postcode}　#{@customer.address}　#{@customer.last_name}#{@customer.first_name}" %>
+  </br>
+   
+
+
+<% end %>
