@@ -10,6 +10,10 @@ class Public::ItemsController < ApplicationController
     @genres = Genre.all
   end
   
-  
+  def search
+  @items = Item.search(params[:keyword])
+  @keyword = params[:keyword]
+  render "index"
+  end
 
 end
