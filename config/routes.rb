@@ -5,13 +5,13 @@ Rails.application.routes.draw do
     root to: 'homes#top'
     get 'about' => 'homes#about'
     resource :customers, only: [:show, :edit, :update]
-    post 'customer/confilm' => 'customers#confilm'
+    post 'customer/confirm' => 'customers#confirm'
     patch 'customer/hide' => 'customers#hide'
     resources :addresses, except: [:new, :show]
     resources :orders, except: [:destroy, :edit, :update]do
       resources :order_items, only: [:create, :destroy]
     end
-    post 'order/confilm' => 'orders#confilm'
+    post 'order/confirm' => 'orders#confirm'
     get 'order/thanks' => 'orders#thanks'
     resources :cart_items, except: [:index, :edit, :new]
     delete 'cart_item/destroy_all' => 'cart_items#destroy_all'
