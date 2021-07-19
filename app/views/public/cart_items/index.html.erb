@@ -1,0 +1,33 @@
+<h1>ショッピングカート</h1>
+<%= link_to "カートを空にする", cart_item_destroy_all_path, method: :delete %>
+<table>
+  <thead>
+    <tr>
+      <th>商品名</th>
+      <th>単価(税込)</th>
+      <th>数量</th>
+      <th>小計</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @price = 0 %>
+    <% @cart_items.each do |cart_item| %>
+      <tr>
+        <td><%= attachment_image_tag cart_item.item, :image, :fill, 100, 60, format: 'jpeg', fallback: "no_image.png" %><%= cart_item.item.name%></td>
+        <td><%= cart_item.item.add_tax_price %></td>
+        <%= form_with model:cart_item, local:true do |f| %>
+          <td><%= f.select :item_count, options_for_select((1..10).to_a, cart_item.item_count) %><%= f.submit "変更" %></td>
+        <% end %>
+        <td><%= cart_item.sub_total_price.to_s(:delimited) %></td>
+        <% @price += cart_item.sub_total_price %>
+        <td><%= link_to "削除する", cart_item_path(cart_item), method: :delete %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<table>
+  <tr><th>合計金額</th><th><%= @price.to_s(:delimited) %></th></tr>
+</table>
+<%= link_to "買い物を続ける", root_path %>
+<%= link_to "情報入力に進む", order_path(new_order_path) %>

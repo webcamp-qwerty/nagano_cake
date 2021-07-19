@@ -69,3 +69,5 @@ gem 'kaminari','~> 1.2.1'
 gem 'bootstrap', '~> 4.5' #ExecJS::ProgramError in Devise::Sessions#new のエラーが出たらアプリケーションを完成させよう２のbootstrapの導入を参照
 gem 'jquery-rails'
 gem 'font-awesome-sass', '~> 5.13'
+
+gem 'pry-byebug'
