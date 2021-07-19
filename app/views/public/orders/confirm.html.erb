@@ -1,0 +1,15 @@
+<h2>注文情報確認</h2>
+<label>支払方法</label>
+<br>
+  <%= @order.payment_method_i18n %>
+<br>
+<label>お届け先</label>
+  <%= @order.postcode %>
+  <%= @order.address %>
+  <%= @order.name %>
+<%= form_with model:@order, url:orders_path do |f| %>
+  <%= f.hidden_field :postcode %>
+  <%= f.hidden_field :address %>
+  <%= f.hidden_field :name %>
+  <%= f.submit "注文を確定する" , class:"btn btn-success" %>
+<% end %>
