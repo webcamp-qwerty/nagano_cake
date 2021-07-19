@@ -17,4 +17,8 @@
 <%= @item.name %>
 <%= @item.introduct %>
 <%= @item.add_tax_price.to_s(:delimited) %>（税込）
-<!-- 個数選択とカートへ保存はカート機能で作成 -->
+<%= form_with local: true, model:@cart_item do |f| %>
+  <%= f.hidden_field :item_id, value: @item.id %>
+  <%= f.select :item_count, options_for_select((1..10).to_a), include_blank: "個数選択" %>
+  <%= f.submit "カートに入れる" %>
+<% end %>
