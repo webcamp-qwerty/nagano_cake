@@ -1,6 +1,6 @@
 class Public::SearchsController < ApplicationController
   def search
-    @model = params["search"]["model"]
+    @model = "Item"
     @value = params["search"]["value"]
     @how = params["search"]["how"]
     @datas = search_for(@how, @model, @value)
@@ -27,9 +27,9 @@ class Public::SearchsController < ApplicationController
   end
   
   def partical(model, value)
-    if model == 'Item'
+   if model == 'Item'
       Item.where("name LIKE ?", "%#{value}%")
-    end
+   end
   end
   
   def search_for(how, model, value)
