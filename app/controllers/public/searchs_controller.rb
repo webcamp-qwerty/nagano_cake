@@ -1,48 +1,40 @@
 class Public::SearchsController < ApplicationController
   def search
-    @model = params["search"]["model"]
     @value = params["search"]["value"]
     @how = params["search"]["how"]
-    @datas = search_for(@how, @model, @value)
+    @name = params["search"]["name"]
+    @datas = search_for(@how, @value)
   end
-  
+
    private
-  
-  def match(model, value)
-    if model == 'Item'
-      Item.where(name: value)
-    end
+
+  def match(value)
+      Item.where(name: value).or(Item.where(genre_id: value))
   end
-  
-  def forward(model, value)
-    if model == 'Item'
+
+  def forward(value)
       Item.where("name LIKE ?", "#{value}%")
-    end
   end
-  
-  def backward(model, value)
-    if model == 'Item'
+
+  def backward(value)
       Item.where("name LIKE ?", "%#{value}")
-    end
   end
-  
-  def partical(model, value)
-    if model == 'Item'
+
+  def partical(value)
       Item.where("name LIKE ?", "%#{value}%")
-    end
   end
-  
-  def search_for(how, model, value)
+
+  def search_for(how, value)
     case how
     when 'match'
-      match(model, value)
+      match(value)
     when 'forward'
-      forward(model, value)
+      forward(value)
     when 'backward'
-      backward(model, value)
+      backward(value)
     when 'partical'
-      partical(model, value)
+      partical(value)
     end
   end
-  
+
 end
