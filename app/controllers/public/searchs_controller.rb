@@ -22,6 +22,8 @@ class Public::SearchsController < ApplicationController
 
   def partical(value)
       Item.where("name LIKE ?", "%#{value}%")
+  
+  
   end
 
   def search_for(how, value)
