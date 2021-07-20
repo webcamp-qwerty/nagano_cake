@@ -1,4 +1,57 @@
 <h2>注文情報確認</h2>
+
+  <table class="table">
+        <thead>
+            <tr>
+                <th>商品名</th>
+                <th>単価</th>
+                <th>数量</th>
+                <th>小計</th>
+            </tr>
+        </thead>
+    <% @price = 0 %>
+    <% @cart_items.each do |cart_item| %>
+        <tbody>
+            <tr>
+                <td>
+                  <%= attachment_image_tag cart_item.item, :image, :fill, 100, 60, format: 'jpeg', fallback: "no_image.png" %>
+                  <%= cart_item.item.name %>
+                </td>
+                <td>
+                  <%= cart_item.item.add_tax_price %>
+                </td>
+                <td>
+                  <%= cart_item.item_count %>
+                </td>
+                <td>
+                  <%= cart_item.sub_total_price.to_s(:delimited) %>
+                </td>
+                <% @price += cart_item.sub_total_price %>
+            </tr>
+        </tbody>
+    <% end %>
+  </table>
+
+  <table>
+
+  <tr>
+    <th>送料</th>
+    <td><%= @order.delivery_charge %></td>
+  </tr>
+
+  <tr>
+    <th>商品合計</th>
+    <td><%= @price.to_s(:delimited) %></td>
+  </tr>
+
+  <tr>
+    <th>請求金額</th>
+    <% @price_a = @price + 800 %>
+    <td><%= @price_a.to_s(:delimited) %></td>
+  </tr>
+
+</table>
+
 <label>支払方法</label>
 <br>
   <%= @order.payment_method_i18n %>
@@ -8,8 +61,13 @@
   <%= @order.address %>
   <%= @order.name %>
 <%= form_with model:@order, url:orders_path do |f| %>
-  <%= f.hidden_field :postcode %>
-  <%= f.hidden_field :address %>
-  <%= f.hidden_field :name %>
+  <%= f.hidden_field :postcode, :value => @order.postcode%>
+  <%= f.hidden_field :address, :value => @order.address %>
+  <%= f.hidden_field :name, :value => @order.name %>
+  <%= f.hidden_field :payment, :value => @price_a.to_s %>
+  <%= f.hidden_field :delivery_charge, :value => @order.delivery_charge %>
+  <%= f.hidden_field :customer_id, :value => @order.customer_id %>
+  <%= f.hidden_field :payment_method, :value => @order.payment_method %>
+  <%= f.hidden_field :order_status, :value => "waiting" %>
   <%= f.submit "注文を確定する" , class:"btn btn-success" %>
 <% end %>
