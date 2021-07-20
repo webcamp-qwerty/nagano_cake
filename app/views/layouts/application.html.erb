@@ -33,8 +33,8 @@
             <li><%= link_to ' ログアウト', destroy_admin_session_path, method: :delete,class: 'nav-link text-light' %></li>
 
           <% else %>
-            <li><%= link_to ' About',root_path,class: 'fas fa-home nav-link text-light' %></li>
-            <li><%= link_to ' 商品一覧',about_path,class: 'fas fa-cookie-bite nav-link text-light' %></li>
+            <li><%= link_to ' About',about_path,class: 'fas fa-home nav-link text-light' %></li>
+            <li><%= link_to ' 商品一覧',items_path,class: 'fas fa-cookie-bite nav-link text-light' %></li>
             <li><%= link_to ' 新規登録', new_customer_registration_path,class: 'fas fa-user-plus nav-link text-light' %></li>
             <li><%= link_to ' ログイン', new_customer_session_path ,class: 'fas fa-sign-in-alt nav-link text-light'%></li>
           <% end %>
@@ -42,14 +42,12 @@
         </div>
       </div>
       <%= form_with url:search_path, method: :get, local: true do |f| %>
-          <%= f.text_field 'search[value]' %>
-          <%= f.select 'search[how]', options_for_select({ "完全一致" => "match", "前方一致" => "forward", "後方一致" => "backward", "部分一致" => "partical"  }) %>
-          <%= f.submit :"検索" %>
-        <% end %>
+        <%= f.text_field 'search[value]' %>
+        <%= f.select 'search[how]', options_for_select({ "完全一致" => "match", "前方一致" => "forward", "後方一致" => "backward", "部分一致" => "partical"  }) %>
+        <%= f.submit :"検索" %>
+      <% end %>
     </nav>
   </header>
-
-
 
 
   <body>
