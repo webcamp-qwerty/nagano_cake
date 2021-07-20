@@ -46,7 +46,7 @@
 
   <tr>
     <th>請求金額</th>
-    <% @price_a = @price + 800 %>
+    <% @price_a = @price + @order.delivery_charge %>
     <td><%= @price_a.to_s(:delimited) %></td>
   </tr>
 
