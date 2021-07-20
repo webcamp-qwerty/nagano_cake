@@ -4,19 +4,21 @@
 <table>
   <tr>
     <th>注文日</th>
-    <th><%#= %></th>
+    <td><%= @order.created_at.to_s(:datetime_jp) %></td>
   </tr>
   <tr>
     <th>配送先</th>
-    <th><%#= %></th>
+    <td>〒<%= @order.postcode %><br>
+       <%= @order.address %><br>
+       <%= @order.name %></td>
   </tr>
   <tr>
     <th>支払方法</th>
-    <th><%#= %></th>
+    <td><%=@order.payment_method %></td>
   </tr>
   <tr>
     <th>ステータス</th>
-    <th><%#=  %></th>
+    <td><%=@order.order_status %></td>
   </tr>
 </table>
 
@@ -24,15 +26,16 @@
 <table>
   <tr>
     <th>商品合計</th>
-    <th><%#= %></th>
+    <% @payment = @order.payment - @order.delivery_charge %>
+    <th><%= @payment %></th>
   </tr>
   <tr>
     <th>配送料</th>
-    <th><%#= %></th>
+    <th><%= @order.delivery_charge %></th>
   </tr>
   <tr>
     <th>ご請求額</th>
-    <th><%#= %></th>
+    <th><%= @order.payment %></th>
   </tr>
 </table>
 
@@ -46,14 +49,17 @@
       <th>小計</th>
     </tr>
   </thead>
+  <% @order.order_items.each do |items| %>
   <tbody>
     <tr>
-     <td></td>
-     <td></td>
-     <td></td>
-     <td></td>
+     <td><%= items.item.name  %></td>
+     <td><%= items.purchase_price %></td>
+     <td><%= items.item_count %></td>
+     <% @price = items.purchase_price*items.item_count %>
+     <td><%= @price.to_s(:delimited) %></td>
      <td></td>
      <td></td>
     </tr>
   </tbody>
+  <% end %>
 </table>
