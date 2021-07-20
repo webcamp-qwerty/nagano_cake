@@ -28,8 +28,8 @@
     <th>注文ステータス</th>
     <td>
     <%=@order.order_status_i18n %>
-    <%= form_with model: @order,url:  admin_order_orders_update_path, local: true do |f| %>
-    <%= f.select :order_status, options_for_select(Order.order_statuses.keys) %>
+    <%= form_with model: @order,url:  admin_order_path, local: true do |f| %>
+    <%= f.select :order_status, options_for_select(Order.order_statuses_i18n.keys,:selected =>@order.order_status_i18n ) %>
     <%= f.submit "更新" , class:"btn btn-success" %>
     <% end %>
 
@@ -61,8 +61,8 @@
      <td><%= @price.to_s(:delimited) %></td>
      <td><%= items.make_status_i18n %></td>
      <td>
-      <%= form_with model: items,url:  admin_order_items_update_path, local: true do |f| %>
-      <%= f.select :make_status, options_for_select(OrderItem.make_statuses.keys) %>
+      <%= form_with model: items,url:  admin_orders_item_path(items.id), local: true do |f| %>
+      <%= f.select :make_status, options_for_select(OrderItem.make_statuses.keys,:selected =>items.make_status_i18n) %>
       <%= f.submit "更新" , class:"btn btn-success" %>
       <% end %>
      </td>

@@ -26,11 +26,8 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :customers, except: [:new, :destroy, :create]
-    resources :orders, only: [:index, :show]
-    patch 'order/orders_update' => 'orders#orders_update'
-    put 'order/orders_update' => 'orders#orders_update'
-    patch 'order/items_update' => 'orders#items_update'
-    put 'order/items_update' => 'orders#items_update'
+    resources :orders, only: [:index, :show, :update]
+    resources :orders_item, only: [:update]
     resources :items, except: [:destroy]
     get 'search' => 'searchs#search'
     resources :genres, except: [:new, :destroy, :show]
