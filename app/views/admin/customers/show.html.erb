@@ -31,7 +31,7 @@
   </tr>
   <tr>
     <th>会員ステータス</th>
-    <th>有効or無効（未実装）</th>
+    <th><%= @customer.is_deleted ? '退会' : '有効' %></th>
   </tr>
 </table>
 <span>

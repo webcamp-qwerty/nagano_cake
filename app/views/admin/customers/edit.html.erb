@@ -25,7 +25,15 @@
 
 <div>
   <lavel>メールアドレス</lavel>
-    <%= f.text_field :mail %>
+    <%= f.text_field :email %>
+</div>
+
+<div>
+  <lavel>会員ステータス</lavel>
+    <%= f.radio_button :is_deleted, false %>
+    <%= f.label :is_deleted, '有効' %>
+    <%= f.radio_button :is_deleted, true %>
+    <%= f.label :is_deleted, '退会' %>
 </div>
 
 <span>
