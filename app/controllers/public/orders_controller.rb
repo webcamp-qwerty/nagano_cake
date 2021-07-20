@@ -8,7 +8,7 @@ class Public::OrdersController < ApplicationController
   end
 
   def confirm
-    @order = Order.new  
+    @order = Order.new
     # @cart_items = current_customer.cart_items
     @order.payment_method = params[:order][:payment_method]
     if params[:order][:address_option] == "0"
@@ -25,7 +25,7 @@ class Public::OrdersController < ApplicationController
       @order.postcode = params[:order][:postcode]
       @order.address = params[:order][:address]
       @order.name = params[:order][:name]
-      
+
     end
   end
 
