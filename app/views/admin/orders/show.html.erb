@@ -3,41 +3,40 @@
 <h4>注文情報</h4>
 <table>
   <tr>
+    <th>購入者</th>
+    <td>
+      <%= link_to admin_customer_path(@order.customer.id) do %>
+        <%= @order.customer.last_name %><%= @order.customer.first_name %>
+      <% end %>
+    </td>
+  </tr>
+  <tr>
     <th>注文日</th>
     <td><%= @order.created_at.to_s(:datetime_jp) %></td>
   </tr>
   <tr>
     <th>配送先</th>
-    <td>〒<%= @order.postcode %><br>
+    <td>〒<%= @order.postcode %>
        <%= @order.address %><br>
        <%= @order.name %></td>
   </tr>
   <tr>
     <th>支払方法</th>
-    <td><%=@order.payment_method %></td>
+    <td><%=@order.payment_method_i18n %></td>
   </tr>
   <tr>
-    <th>ステータス</th>
-    <td><%=@order.order_status %></td>
+    <th>注文ステータス</th>
+    <td>
+    <%= form_with model: @order,url:  admin_order_path, local: true do |f| %>
+    <%= f.select :order_status, options_for_select(Order.order_statuses_i18n.keys,:selected =>@order.order_status ) %>
+    <%= f.submit "更新" , class:"btn btn-success" %>
+    <% end %>
+
+    </td>
   </tr>
 </table>
 
-<h4>請求情報</h4>
-<table>
-  <tr>
-    <th>商品合計</th>
-    <% @payment = @order.payment - @order.delivery_charge %>
-    <th><%= @payment %></th>
-  </tr>
-  <tr>
-    <th>配送料</th>
-    <th><%= @order.delivery_charge %></th>
-  </tr>
-  <tr>
-    <th>ご請求額</th>
-    <th><%= @order.payment %></th>
-  </tr>
-</table>
+
 
 <h4>注文内容</h4>
 <table>
@@ -45,8 +44,10 @@
     <tr>
       <th>商品</th>
       <th>単価（税込）</th>
-      <th>個数</th>
+      <th>数量</th>
       <th>小計</th>
+      <th>製作ステータス</th>
+      <th></th>
     </tr>
   </thead>
   <% @order.order_items.each do |items| %>
@@ -57,9 +58,29 @@
      <td><%= items.item_count %></td>
      <% @price = items.purchase_price*items.item_count %>
      <td><%= @price.to_s(:delimited) %></td>
-     <td></td>
-     <td></td>
+     <td>
+      <%= form_with model: items,url:  admin_orders_item_path(items.id), local: true do |f| %>
+      <%= f.select :make_status, options_for_select(OrderItem.make_statuses_i18n.keys,:selected =>items.make_status) %>
+      <%= f.submit "更新" , class:"btn btn-success" %>
+      <% end %>
+     </td>
     </tr>
   </tbody>
   <% end %>
+</table>
+
+<table>
+  <tr>
+    <th>商品合計</th>
+    <% @payment = @order.payment - @order.delivery_charge %>
+    <td><%= @payment.to_s(:delimited) %>円</td>
+  </tr>
+  <tr>
+    <th>送料</th>
+    <td><%= @order.delivery_charge %>円</td>
+  </tr>
+  <tr>
+    <th>請求額合計</th>
+    <th><%= @order.payment.to_s(:delimited) %>円</th>
+  </tr>
 </table>
