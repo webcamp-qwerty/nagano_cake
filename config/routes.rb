@@ -27,6 +27,10 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :customers, except: [:new, :destroy, :create]
     resources :orders, only: [:index, :show, :update]
+    #------
+    patch 'orders/:id' => 'orders#update_waiting'
+    put 'orders/:id' => 'orders#update_waiting'
+    #------
     resources :orders_item, only: [:update]
     resources :items, except: [:destroy]
     get 'search' => 'searchs#search'

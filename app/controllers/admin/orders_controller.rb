@@ -12,6 +12,12 @@ class Admin::OrdersController < ApplicationController
   def update
    @order = Order.find(params[:id])
    @order.update(order_params)
+   @order_items = @order.order_items
+    if @order.order_status == "confirming"
+       @order_items.each do |item|
+       item.update( make_status: "waiting" )
+       end
+    end
    redirect_to request.referer
   end
 
@@ -20,6 +26,6 @@ class Admin::OrdersController < ApplicationController
  def order_params
   params.require(:order).permit(:order_status)
  end
- 
+
 
 end
