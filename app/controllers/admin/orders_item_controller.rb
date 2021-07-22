@@ -8,12 +8,20 @@ class Admin::OrdersItemController < ApplicationController
     if @order_item.make_status == "production"
        @order.update( order_status: "producing" )
     end
-    @make_status = @order.order_items.select("make_status")
-    #@order_items.each do |item|
-    if @make_status.all?{|make_status| make_status == "completed"}
-      @order.update( order_status:"preparing" )
+    @not_complete_flag = 1
+    p @count
+    @order_items.each do |item|
+      if item.make_status != "completed"
+        @not_complete_flag += 1
+        p item.make_status
+        p @not_complete_flag
+      end
     end
-    #end
+    p @not_complete_frag
+    if @not_complete_flag == 1
+      @order.update( order_status:"preparing" )
+
+    end
     redirect_to request.referer
   end
 
