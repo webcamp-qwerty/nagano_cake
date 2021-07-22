@@ -1,26 +1,23 @@
-<h2>Log in</h2>
+<% if current_page?(new_admin_session_path) %>
+  <h2>管理者用ログイン</h2>
+<% else %>
+  <h2>ログイン</h2>
+<% end %>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="field">
-    <%= f.label :email %><br />
+    メールアドレス<br/>
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
 
   <div class="field">
-    <%= f.label :password %><br />
+    パスワード<br>
     <%= f.password_field :password, autocomplete: "current-password" %>
   </div>
-
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
-    </div>
-  <% end %>
-
+<br>
   <div class="actions">
-    <%= f.submit "Log in" %>
+    <%= f.submit "ログイン" %>
   </div>
 <% end %>
-
+<br>
 <%= render "devise/shared/links" %>
