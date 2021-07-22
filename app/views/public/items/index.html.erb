@@ -7,13 +7,9 @@
   <tbody>
     <% @genres.each do |genre| %>
       <tr>
-<<<<<<< Updated upstream
         <td>
-          <%= link_to genre.name, search_path('search[value]': genre.id , 'search[how]': "match", 'search[name]': genre.name ) %>
+          <%= link_to genre.name, search_path('search[value]': genre.id , 'search[how]': "match", 'search[name]': genre.name) %>
         </td>
-=======
-        <td><%= genre.name %></td>
->>>>>>> Stashed changes
       </tr>
     <% end %>
   </tbody>
