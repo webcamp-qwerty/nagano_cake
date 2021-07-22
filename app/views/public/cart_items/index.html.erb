@@ -15,7 +15,7 @@
     <% @cart_items.each do |cart_item| %>
       <tr>
         <td><%= attachment_image_tag cart_item.item, :image, :fill, 100, 60, format: 'jpeg', fallback: "no_image.png" %><%= cart_item.item.name%></td>
-        <td><%= cart_item.item.add_tax_price %></td>
+        <td><%= cart_item.item.add_tax_price.to_s(:delimited) %></td>
         <%= form_with model:cart_item, local:true do |f| %>
           <td><%= f.select :item_count, options_for_select((1..10).to_a, cart_item.item_count) %><%= f.submit "変更" %></td>
         <% end %>

@@ -6,10 +6,10 @@ class Public::SearchsController < ApplicationController
     @datas = search_for(@how, @value)
   end
 
-   private
+  private
 
   def match(value)
-      Item.where(name: value).or(Item.where(genre_id: value))
+      Item.where(name: value, is_active: true).or(Item.where(genre_id: value, is_active: true))
   end
 
   def forward(value)
@@ -22,8 +22,6 @@ class Public::SearchsController < ApplicationController
 
   def partical(value)
       Item.where("name LIKE ?", "%#{value}%")
-  
-  
   end
 
   def search_for(how, value)
