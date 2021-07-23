@@ -38,9 +38,17 @@ wrepper {
 }
 
 .tate {
+  width: 250px;
+  height: 230px;
   display: flex;
   flex-direction: column;
+  flex-wrap: wrap;
   margin: 10px;
+}
+
+.col-lg-10 {
+  width: 100%;
+  height: 534px;
 }
 
 .hgiht {
@@ -55,3 +63,10 @@ wrepper {
 .b {
   margin: 15px 20px 0 20px;
 }
+<<<<<<< HEAD
+=======
+
+.round {
+  border-radius: 50%;
+}
+>>>>>>> 7f492265389e14838f936104dd96236956de07a8
