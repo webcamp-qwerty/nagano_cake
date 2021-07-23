@@ -1,16 +1,23 @@
-<h2>パスワードをお忘れの方</h2>
+<div class="container">
+  <div class="row">
+    <div class="ccol-lg-11 offset-lg-1">
+    <br>
+    <h2>パスワードをお忘れの方</h2>
 
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+    <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
 
-  <div class="field">
-    メールアドレス<br/>
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+      <div class="field">
+        メールアドレス<br/>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+      </div>
+
+      <div class="actions">
+        <%= f.submit "Send me reset password instructions" %>
+      </div>
+    <% end %>
+    <%= render "devise/shared/links" %>
+    <br>
+    </div>
   </div>
-
-  <div class="actions">
-    <%= f.submit "Send me reset password instructions" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</div>
