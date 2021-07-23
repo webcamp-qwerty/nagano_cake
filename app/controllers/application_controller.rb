@@ -5,7 +5,7 @@ protected
   def after_sign_in_path_for(resource)
     if current_admin
       orders_path
-    elsebefore_action :authenticate_customer!,except: [:top, :about]
+    else
       root_path
     end
   end
