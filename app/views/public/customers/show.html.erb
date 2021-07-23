@@ -7,7 +7,7 @@
       <h3>マイページ</h3>
       <span class="title">登録情報<span>
       <span class="customer_edit"><%= link_to "編集する", edit_customer_path,class: "btn btn-sm btn-success" %></span>
-      <table border="1" style="border-collapse: collapse" class="customer_table">
+      <table border="1" style="border-collapse: collapse" class="customer_show_table">
         <tr>
           <th class="customer_show_th">氏名</th>
           <th class="customer_show_th_content"><%= @customer.last_name + @customer.first_name %></th>

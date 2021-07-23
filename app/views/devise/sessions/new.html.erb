@@ -1,23 +1,32 @@
-<% if current_page?(new_admin_session_path) %>
-  <h2>管理者用ログイン</h2>
-<% else %>
-  <h2>ログイン</h2>
-<% end %>
+<div class="container">
+  <div class="row">
+    <div class="ccol-lg-11 offset-lg-1">
+      <br>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    メールアドレス<br/>
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+      <% if current_page?(new_admin_session_path) %>
+        <h2>管理者用ログイン</h2>
+      <% else %>
+        <h2>ログイン</h2>
+      <% end %>
 
-  <div class="field">
-    パスワード<br>
-    <%= f.password_field :password, autocomplete: "current-password" %>
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        <div class="field">
+          メールアドレス<br/>
+          <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+        </div>
+
+        <div class="field">
+          パスワード<br>
+          <%= f.password_field :password, autocomplete: "current-password" %>
+        </div>
+      <br>
+        <div class="actions">
+          <%= f.submit "ログイン" %>
+        </div>
+      <% end %>
+      <br>
+      <%= render "devise/shared/links" %>
+    <br>
+    </div>
   </div>
-<br>
-  <div class="actions">
-    <%= f.submit "ログイン" %>
-  </div>
-<% end %>
-<br>
-<%= render "devise/shared/links" %>
+</div>
