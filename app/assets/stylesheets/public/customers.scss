@@ -3,7 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .customer_show_th{
-background-color: silver;
+  background-color: silver;
   width: 150px;
   height: 50px;
   text-align: center;
@@ -26,7 +26,7 @@ background-color: silver;
   margin-bottom: 30px;
 }
 
-.customer_table{
+.customer_show_table{
   margin: 20px 0px 20px 0px;
 }
 
@@ -35,3 +35,20 @@ background-color: silver;
   height: 50px;
   font-size: 15px;
 }
+
+.admin_customer_index_th_1{
+  background-color: silver;
+  width: 100px;
+  height: 50px;
+}
+
+.admin_customer_index_th_2{
+  background-color: silver;
+  width: 300px;
+  height: 50px;
+}
+
+.admin_customer_index_tr{
+  height: 50px;
+}
+
