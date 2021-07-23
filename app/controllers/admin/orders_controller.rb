@@ -1,6 +1,5 @@
-class Admin::OrdersController < ApplicationController
- before_action :authenticate_admin!,except: [:top, :about]
-
+class Admin::OrdersController < Admin::ApplicationController
+ 
   def index
    @orders = Order.page(params[:order]).per(10)
   end
