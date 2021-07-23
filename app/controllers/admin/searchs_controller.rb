@@ -1,5 +1,5 @@
-class Admin::SearchsController < ApplicationController
-  before_action :authenticate_admin!,except: [:top, :about]
+class Admin::SearchsController < Admin::ApplicationController
+  
   def search
   end
 end
