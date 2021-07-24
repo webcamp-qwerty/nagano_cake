@@ -1,10 +1,9 @@
 <div class="container">
-  <div class="row">
+  <div class="row my-3">
     <div class="ccol-lg-11 offset-lg-1">
-      <br>
-      <h3>会員一覧</h3>
-      <table table border=1 frame="hsides"rules="rows">
-        <thead>
+      <h4>会員一覧</h4>
+      <table class="table">
+        <thead class="thead-light">
           <tr>
             <th class='admin_customer_index_th_1'>会員ID</th>
             <th class='admin_customer_index_th_2'>氏名</th>
@@ -24,7 +23,6 @@
         <%= paginate @customers %>
         </tbody>
       </table>
-    <br>
     </div>
   </div>
 </div>

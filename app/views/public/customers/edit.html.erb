@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="row">
+  <div class="row my-3">
     <div class="ccol-lg-11 offset-lg-1">
       <%= form_with model:@customer, url:edit_customer_path, local:true do |f| %>
       <table class="customer_table">
@@ -37,7 +37,6 @@
       <div>
         <%= link_to "退会する",customer_confirm_path , method: :POST, class: "btn btn-sm btn-danger" %>
       </div>
-      <br>
     </div>
   </div>
 </div>

@@ -1,8 +1,7 @@
-<div class="container">
-  <div class="row">
+<div class="container ">
+  <div class="row my-3">
     <div class="col-lg-11 offset-lg-1 ">
-      <br>
-      <h3><%= @customer.last_name + @customer.first_name %>さんの会員情報詳細</h3>
+      <h4><%= @customer.last_name + @customer.first_name %>さんの会員情報詳細</h4>
       <table border="1" style="border-collapse: collapse" class="customer_table">
         <tr>
           <th class="customer_show_th">ID</th>
@@ -42,7 +41,6 @@
       <span><%= link_to "注文履歴一覧", orders_path,class: "btn btn-sm btn-primary" %></span>
       <span class="customer_edit"><%= link_to "編集する", edit_admin_customer_path,class: "btn btn-sm btn-success" %></span>
     </div>
-    <br>
     </div>
   </div>
 </div>
