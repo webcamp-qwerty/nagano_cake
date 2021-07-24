@@ -1,13 +1,33 @@
-<h1>商品詳細</h1>
-<%= attachment_image_tag @item, :image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.png" %>
-<h4>商品名</h4>
-<%= @item.name %>
-<h4>商品説明</h4>
-<%= @item.introduct %>
-<h4>ジャンル</h4>
-<%= @item.genre.name %>
-<h4>税込価格（税抜価格）</h4>
-<%= @item.add_tax_price.to_s(:delimited) %>(<%= @item.excluded_price.to_s(:delimited) %>)円　<!-- .to_s(:delimited)は３桁以上の数に自動でカンマを打ってくれる-->
-<h4>販売ステータス</h4>
-<%= @item.is_active ? '販売中' : '売り切れ' %>
-<%= link_to "編集する", edit_admin_item_path(@item) %>
+<div class="container">
+    <div class="row">
+        <h4>商品詳細</h4>
+        <div class="a-i-s">
+            <div class="pt-5">
+                <%= attachment_image_tag @item, :image, :fill, 250, 150, format: 'jpeg', fallback: "no_image.png" %>
+            </div>
+            <div class="ml-5 mb-5">
+                <table class="customer_table">
+                    <tr>
+                        <th class="customer_edit_th">商品名</th>
+                        <td><%= @item.name %></td>
+                    </tr>
+                    <tr>
+                        <th class="customer_edit_th">商品説明</th>
+                        <td><%= @item.introduct %></td>
+                    </tr>
+                        <th class="customer_edit_th">ジャンル</th>
+                        <td><%= @item.genre.name %></td>
+                    </tr>
+                        <th class="customer_edit_th">税抜価格</th>
+                        <td><%= @item.add_tax_price.to_s(:delimited) %>(<%= @item.excluded_price.to_s(:delimited) %>)円</td>
+                    </tr>
+                    <tr>
+                        <th class="customer_edit_th">販売ステータス</th>
+                        <td><%= @item.is_active ? '販売中' : '売り切れ' %></td>
+                    </tr>
+                </table>
+            <%= link_to "編集する", edit_admin_item_path(@item), class: "btn btn-success" %>
+            </div>
+        </div>
+    </div>
+</div>
