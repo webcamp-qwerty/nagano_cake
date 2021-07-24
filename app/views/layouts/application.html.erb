@@ -17,7 +17,7 @@
           <%= image_tag 'log_2.png',:size =>'250x100' %>
         <% end %>
         <% if customer_signed_in? %>
-          <a class="fas text-danger">ようこそ,<%= current_customer.last_name %>さん!</a>
+          <span class="fas text-danger">ようこそ,<%= current_customer.last_name %>さん!</span>
         <% end %>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
