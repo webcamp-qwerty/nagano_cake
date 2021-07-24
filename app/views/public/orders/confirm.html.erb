@@ -1,6 +1,16 @@
-<h2>注文情報確認</h2>
+<div class="container">
+    <div class="row w-15">
+      <div class="col-lg-2">
+<div class="heading">
+<h5 style="background-color:#cccccc">注文情報確認</h2>
+</div>
+</div>
+</div>
 
-  <table class="table">
+<div class="row">
+         <div class="col-lg-7 ">
+
+  <table class="confirm_order_contents" border="1" style="border-collapse: collapse">
         <thead>
             <tr>
                 <th>商品名</th>
@@ -32,8 +42,11 @@
     <% end %>
   </table>
 
-  <table>
+  </div>
 
+
+  <div class="col-lg-3">
+  <table class="confirm_billing_info" border="1" style="border-collapse: collapse">
   <tr>
     <th>送料</th>
     <td><%= @order.delivery_charge %></td>
@@ -49,17 +62,25 @@
     <% @price_a = @price + @order.delivery_charge %>
     <td><%= @price_a.to_s(:delimited) %></td>
   </tr>
-
 </table>
+</div>
+</div>
 
-<label>支払方法</label>
-<br>
+<table class="confirm_payment_text">
+<th>支払方法</th>
+<td>
   <%= @order.payment_method_i18n %>
-<br>
-<label>お届け先</label>
-  <%= @order.postcode %>
-  <%= @order.address %>
+<td>
+</table>
+<table class="confirm_address">
+<th>お届け先</th>
+<td>
+  〒<%= @order.postcode %>
+  <%= @order.address %><br>
   <%= @order.name %>
+</td>
+</table>
+<div class="confirm_botton">
 <%= form_with model:@order, url:orders_path do |f| %>
   <%= f.hidden_field :postcode, :value => @order.postcode%>
   <%= f.hidden_field :address, :value => @order.address %>
@@ -71,3 +92,5 @@
   <%= f.hidden_field :order_status, :value => "waiting" %>
   <%= f.submit "注文を確定する" , class:"btn btn-success" %>
 <% end %>
+</div>
+</div>

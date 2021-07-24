@@ -1,7 +1,15 @@
-<h3>注文履歴一覧</h3>
+<div class="container">
+  <div class="row w-15">
+      <div class="col-lg-2">
+<div class="heading">
+<h5 style="background-color:#cccccc">注文履歴一覧</h5>
+</div>
+</div>
+</div>
 
-<table>
-  <thead>
+
+<table class="table">
+  <thead class="thead-light">
     <tr>
       <th>購入日時</th>
       <th>購入者</th>
@@ -17,7 +25,7 @@
           <%= order.created_at.to_s(:datetime_jp) %>
           <% end %>
         </td>
-        <td>
+        <td >
           <%= order.customer.last_name %><%= order.customer.first_name %>
         </td>
         <% @count = 0 %>
@@ -30,4 +38,7 @@
     <% end %>
   </tbody>
 </table>
+<div class="paginate">
 <%= paginate @orders %>
+</div>
+</div>

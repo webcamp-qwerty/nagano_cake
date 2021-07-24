@@ -1,7 +1,13 @@
-<h3>注文履歴詳細</h3>
+<div class="container">
+<div class="row w-15">
+<div class="col-lg-2">
+<div class="heading">
+<h5 style="background-color:#cccccc">注文履歴詳細</h5>
+</div>
+</div>
+</div>
 
-<h4>注文情報</h4>
-<table>
+<table class="admin_order_costomer">
   <tr>
     <th>購入者</th>
     <td>
@@ -37,10 +43,11 @@
 </table>
 
 
+<div class="row">
+  <div class="col-lg-9 ">
 
-<h4>注文内容</h4>
-<table>
-  <thead>
+<table class="table">
+  <thead class="thead-light">
     <tr>
       <th>商品</th>
       <th>単価（税込）</th>
@@ -68,8 +75,9 @@
   </tbody>
   <% end %>
 </table>
-
-<table>
+</div>
+<div class="col-lg-3 ">
+<table class="admin_total">
   <tr>
     <th>商品合計</th>
     <% @payment = @order.payment - @order.delivery_charge %>
@@ -84,3 +92,7 @@
     <th><%= @order.payment.to_s(:delimited) %>円</th>
   </tr>
 </table>
+</div>
+</div>
+
+</div>
