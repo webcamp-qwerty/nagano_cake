@@ -1,3 +1,28 @@
 // Place all the styles related to the cart_items controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+
+.cart_item_th:nth-child(1){
+  width: 500px;
+}
+
+.cart_item_th{
+  width: 150px;
+  text-align: center;
+  font-size: 15px;
+}
+
+
+.cart_item_td:nth-child(1).cart_item_td:nth-child(1){
+  text-align: left;
+}
+
+.cart_item_td.cart_item_td{
+  text-align: center;
+  vertical-align: middle;
+}
+
+
+
