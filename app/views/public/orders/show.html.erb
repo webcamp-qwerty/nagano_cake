@@ -10,7 +10,11 @@
     <div class="row">
          <div class="col-lg-7 ">
 <h6>注文情報</h6>
-<table class="order_info" border="1" style="border-collapse: collapse">
+</div>
+ <div class="col-lg-3 offset-lg-1">
+<h6 >請求情報</h6>
+</div>
+<table class="order_info col-lg-7" border="1" style="border-collapse: collapse">
   <tr>
     <th class="th_color">注文日</th>
     <td><%= @order.created_at.to_s(:datetime_jp) %></td>
@@ -30,14 +34,14 @@
     <td><%=@order.order_status_i18n %></td>
   </tr>
 </table>
-</div>
+<!--</div>-->
 
 
 
 
-  <div class="col-lg-3">
-<h6 >請求情報</h6>
-<table class="billing_info" border="1" style="border-collapse: collapse">
+ 
+
+<table class="billing_info col-lg-3 offset-lg-1" border="1" style="border-collapse: collapse">
   <tr>
     <td class="th_color">商品合計</td>
     <% @payment = @order.payment - @order.delivery_charge %>
@@ -52,8 +56,8 @@
     <th><%= @order.payment.to_s(:delimited) %></th>
   </tr>
 </table>
-</div>
-</div>
+
+<!--</div>-->
 
 <div class="row">
   <div class="col-lg-12">
