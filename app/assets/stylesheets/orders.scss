@@ -1,3 +1,21 @@
 // Place all the styles related to the orders controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.order_list th,
+.order_list td {
+  padding: 0px 5px;
+
+}
+.order_list_item_names{
+  width:20%;
+}
+.order_list_payment{
+  width:10%;
+}
+.order_list_status{
+  width:12%;
+}
+.order_list_link{
+  width:10%;
+}
