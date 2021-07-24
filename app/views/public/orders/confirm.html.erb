@@ -8,15 +8,15 @@
 </div>
 
 <div class="row">
-         <div class="col-lg-7 ">
+         <!--<div class="col-lg-7 ">-->
 
-  <table class="confirm_order_contents" border="1" style="border-collapse: collapse">
+  <table class="confirm_order_contents col-lg-7" border="1" style="border-collapse: collapse">
         <thead>
             <tr>
-                <th>商品名</th>
-                <th>単価</th>
-                <th>数量</th>
-                <th>小計</th>
+                <th class="th_color">商品名</th>
+                <th class="th_color">単価</th>
+                <th class="th_color">数量</th>
+                <th class="th_color">小計</th>
             </tr>
         </thead>
     <% @price = 0 %>
@@ -42,28 +42,28 @@
     <% end %>
   </table>
 
-  </div>
+  <!--</div>-->
 
 
-  <div class="col-lg-3">
-  <table class="confirm_billing_info" border="1" style="border-collapse: collapse">
+  <!--<div class="col-lg-3">-->
+  <table class="confirm_billing_info col-lg-3 offset-lg-1" border="1" style="border-collapse: collapse">
   <tr>
-    <th>送料</th>
+    <th class="th_color">送料</th>
     <td><%= @order.delivery_charge %></td>
   </tr>
 
   <tr>
-    <th>商品合計</th>
+    <th class="th_color">商品合計</th>
     <td><%= @price.to_s(:delimited) %></td>
   </tr>
 
   <tr>
-    <th>請求金額</th>
+    <th class="th_color">請求金額</th>
     <% @price_a = @price + @order.delivery_charge %>
     <td><%= @price_a.to_s(:delimited) %></td>
   </tr>
 </table>
-</div>
+<!--</div>-->
 </div>
 
 <table class="confirm_payment_text">
