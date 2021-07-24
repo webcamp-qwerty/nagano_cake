@@ -34,7 +34,7 @@ Rails.application.routes.draw do
     resources :orders_item, only: [:update]
     resources :items, except: [:destroy]
     get 'search' => 'searchs#search'
-    resources :genres, except: [:new, :destroy, :show]
+    resources :genres, except: [:new, :show]
   end
 
 end
