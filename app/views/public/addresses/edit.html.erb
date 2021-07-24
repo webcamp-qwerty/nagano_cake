@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="row">
+  <div class="row my-3">
     <div class="ccol-lg-11 offset-lg-1">
       <% if @address.errors.any? %>
         <h3 style="color: red"><%= @address.errors.count %>error prohibited this book from being saved:</h3>
@@ -11,8 +11,8 @@
           </ul>
         </div>
       <% end %>
-      <br>
-      <h3>配送先編集</h3>
+
+      <h4>配送先編集</h4>
       <%= form_with model:@address, local: true do |t| %>
       <table>
         <tr>
@@ -30,7 +30,6 @@
       </table>
       <%= t.submit '変更内容を保存',class:'btn btn-success' %>
       <% end %>
-      <br>
     </div>
   </div>
 </div>
