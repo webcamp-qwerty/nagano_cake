@@ -35,6 +35,7 @@ wrepper {
 
 .yoko {
   display: flex;
+  flex-wrap: wrap;
 }
 
 .tate {
@@ -46,9 +47,14 @@ wrepper {
   margin: 10px;
 }
 
-.col-lg-10 {
+.i-show-empty {
   width: 100%;
   height: 534px;
+}
+
+.i-index-empty {
+ width: 100%;
+ flex-grow: 1;
 }
 
 .hgiht {
@@ -63,10 +69,19 @@ wrepper {
 .b {
   margin: 15px 20px 0 20px;
 }
-<<<<<<< HEAD
-=======
 
 .round {
   border-radius: 50%;
 }
->>>>>>> 7f492265389e14838f936104dd96236956de07a8
+
+.a-i-s {
+  display: flex;
+}
+
+.a-i-i {
+  display: flex;
+}
+
+.plus-botton {
+  margin-left: 950px;
+}
