@@ -2,7 +2,7 @@
   <div clsss="row my-3">
     <div class="a-i-i">
       <div class="my-3 h4">商品一覧</div>
-      <div class="my-3 ">
+      <div class="my-3">
       <%= link_to new_admin_item_path do %>
         <div class="fas fa-plus h4 plus-botton"></div>
       <% end %>
@@ -38,7 +38,7 @@
         <% end %>
       </tbody>
     </table>
-    <div class="paginate">
+    <div class="paginate mb-3">
       <%= paginate @items %>
     </div>
   </div>
