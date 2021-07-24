@@ -1,10 +1,10 @@
 <div class="container">
     <div class="row my-3">
-        <div class="col-lg-12">
+        <div class="col-lg-12 i-show-empty">
             <% if @name.present? %>
-              <h2><%= @name %>一覧</h2>
+              <h4><%= @name %>一覧</h4>
             <% else %>
-              <h2>'<%= @value %>'の検索結果</h2>
+              <h4>'<%= @value %>'の検索結果</h4>
             <% end %>
             <table class="table">
                 <thead class="thead-light">
