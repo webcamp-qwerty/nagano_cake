@@ -24,7 +24,7 @@
         <tbody>
             <tr>
                 <td>
-                  <%= attachment_image_tag cart_item.item, :image, :fill, 100, 60, format: 'jpeg', fallback: "no_image.png" %>
+                  <%= attachment_image_tag cart_item.item, :image, :fill, 100, 60, format: 'jpeg', fallback: "no_image.png", class: "img" %>
                   <%= cart_item.item.name %>
                 </td>
                 <td>
