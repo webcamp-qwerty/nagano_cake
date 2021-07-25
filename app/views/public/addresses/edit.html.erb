@@ -5,30 +5,30 @@
         <h3 style="color: red"><%= @address.errors.count %>error prohibited this book from being saved:</h3>
         <div id="error_explanation">
           <ul style="color: red">
-          <% @address.errors.full_messages.each do |message| %>
-            <li><%= message %></li>
-          <% end %>
+            <% @address.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
           </ul>
         </div>
       <% end %>
 
       <h4>配送先編集</h4>
       <%= form_with model:@address, local: true do |t| %>
-      <table>
-        <tr>
-          <th>郵便番号（ハイフンなし）</th>
-          <td><%= t.text_field :postcode, class: 'form-control' %></td>
-        </tr>
-        <tr>
-          <th>住所</th>
-          <td><%= t.text_field :address, class: 'form-control' %></td>
-        </tr>
-        <tr>
-          <th>宛名</th>
-          <td><%= t.text_field :name, class: 'form-control' %></td>
-        </tr>
-      </table>
-      <%= t.submit '変更内容を保存',class:'btn btn-success' %>
+        <table>
+          <tr>
+            <th>郵便番号（ハイフンなし）</th>
+            <td><%= t.text_field :postcode, class: 'form-control' %></td>
+          </tr>
+          <tr>
+            <th>住所</th>
+            <td><%= t.text_field :address, class: 'form-control' %></td>
+          </tr>
+          <tr>
+            <th>宛名</th>
+            <td><%= t.text_field :name, class: 'form-control' %></td>
+          </tr>
+        </table>
+        <%= t.submit '変更内容を保存',class:'btn btn-success' %>
       <% end %>
     </div>
   </div>
