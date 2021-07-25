@@ -8,13 +8,13 @@ class Admin::OrdersItemController < Admin::ApplicationController
     if @order_item.make_status == "production"
        @order.update( order_status: "producing" )
     end
-    @not_complete_flag = 1
+    @not_complete_flag = 0
     @order_items.each do |item|
       if item.make_status != "completed"
-        @not_complete_flag += 1
+        @not_complete_flag = 1
       end
     end
-    if @not_complete_flag == 1
+    if @not_complete_flag == 0
       @order.update( order_status:"preparing" )
 
     end
