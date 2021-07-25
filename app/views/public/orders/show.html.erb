@@ -53,7 +53,7 @@
   </tr>
   <tr>
     <th class="th_color">ご請求額</th>
-    <th><%= @order.payment.to_s(:delimited) %></th>
+    <th>￥<%= @order.payment.to_s(:delimited) %></th>
   </tr>
 </table>
 
@@ -77,7 +77,7 @@
   <tbody>
     <tr>
      <td><%= items.item.name  %></td>
-     <td><%= items.purchase_price %></td>
+     <td><%= items.purchase_price.to_s(:delimited) %></td>
      <td><%= items.item_count %></td>
      <% @price = items.purchase_price*items.item_count %>
      <td><%= @price.to_s(:delimited) %></td>
