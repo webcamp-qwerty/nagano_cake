@@ -2,6 +2,15 @@
   <div class="row my-3">
     <div class="ccol-lg-11 offset-lg-1">
       <h4>会員一覧</h4>
+
+      <p>
+      <%= form_with url:admin_search_path, method: :get, local: true do |f| %>
+        <%= f.text_field 'search[value]' %>
+        <%= f.select 'search[how]', options_for_select({ "完全一致" => "match", "前方一致" => "forward", "後方一致" => "backward", "部分一致" => "partical"  }) %>
+        <%= f.submit :"検索" %>
+        <% end %>
+      </p>
+
       <table class="table">
         <thead class="thead-light">
           <tr>

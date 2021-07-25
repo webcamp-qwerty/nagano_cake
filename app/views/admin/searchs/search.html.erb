@@ -1,0 +1,39 @@
+<div class="container">
+    <div class="row my-3">
+        <div class="col-lg-12 i-show-empty">
+            <% if @name.present? %>
+              <h4><%= @name %>一覧</h4>
+            <% else %>
+              <h4>'<%= @value %>'の検索結果</h4>
+            <% end %>
+            <table class="table">
+                <thead class="thead-light">
+                  <tr>
+                    <th class='admin_customer_index_th_1'>会員ID</th>
+                    <th class='admin_customer_index_th_2'>氏名</th>
+                    <th class='admin_customer_index_th_2'>メールアドレス</th>
+                    <th class='admin_customer_index_th_1'>ステータス</th>
+                  </tr>
+                </thead>
+                <% @datas.each do |customer| %>
+                <tbody>
+                  <tr>
+                    <th>
+                      <% customer.id %>
+                    </th>
+                    <th>
+                      <%= customer.last_name + customer.first_name%>
+                    </th>
+                    <th>
+                      <%= customer.email %>
+                    </th>
+                    <th>
+                      <%= customer.is_deleted %>
+                    </th>
+                  </tr>
+                    </tbody>
+                <% end %>
+            </table>
+        </div>
+    </div>
+</div>
