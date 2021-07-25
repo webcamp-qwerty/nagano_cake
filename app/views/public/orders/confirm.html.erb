@@ -60,7 +60,7 @@
   <tr>
     <th class="th_color">請求金額</th>
     <% @price_a = @price + @order.delivery_charge %>
-    <td><%= @price_a.to_s(:delimited) %></td>
+    <td>￥<%= @price_a.to_s(:delimited) %></td>
   </tr>
 </table>
 <!--</div>-->
