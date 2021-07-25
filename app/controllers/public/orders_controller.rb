@@ -28,25 +28,33 @@ class Public::OrdersController < ApplicationController
       @order.postcode = params[:order][:postcode]
       @order.address = params[:order][:address]
       @order.name = params[:order][:name]
-
     end
   end
 
   def create
+    @address_option = params[:order][:address_option]
     @order = Order.new(order_params)
     @order.save
     @cart_items = current_customer.cart_items
-    
-   @cart_items.each do |cart_item| 
+
+   @cart_items.each do |cart_item|
     @order_item = OrderItem.new
     @order_item.order_id = @order.id
     @order_item.item_id = cart_item.item_id
     @order_item.item_count = cart_item.item_count
     @order_item.purchase_price = cart_item.item.add_tax_price
     @order_item.save
-   end 
+   end
+  if @address_option == "2"
+    @address = Address.new
+    @address.customer_id = @order.customer_id
+    @address.postcode = @order.postcode
+    @address.address = @order.address
+    @address.name = @order.name
+    @address.save
+  end
     current_customer.cart_items.destroy_all
-    
+
     redirect_to order_thanks_path
   end
 
@@ -62,16 +70,13 @@ class Public::OrdersController < ApplicationController
   def show
     @order = Order.find(params[:id])
     @items = @order.items
-     
+
   end
 
  private
   def order_params
     params.require(:order).permit(:customer_id, :postcode, :address, :name, :payment, :delivery_charge, :payment_method, :order_status)
   end
-  # def order_item_params
-  #   params.require(:order_item).permit(:item_id, :item_count, :purchase_price, :order_id, :make_status)
-  # end
 
 
 end

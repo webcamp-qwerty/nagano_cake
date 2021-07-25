@@ -90,6 +90,7 @@
   <%= f.hidden_field :customer_id, :value => @order.customer_id %>
   <%= f.hidden_field :payment_method, :value => @order.payment_method %>
   <%= f.hidden_field :order_status, :value => "waiting" %>
+  <%= f.hidden_field :address_option, :value =>params[:order][:address_option] %>
   <%= f.submit "注文を確定する" , class:"btn btn-success" %>
 <% end %>
 </div>
