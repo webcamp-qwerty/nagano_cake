@@ -35,15 +35,15 @@
       <div>
         <br>
         <table table border=1 >
-            <thead>
-              <tr>
-                <th class="address_index_list_th_1">郵便番号</th>
-                <th class="address_index_list_th_2">住所</th>
-                <th class="address_index_list_th_1">宛名</th>
-                <th class="address_index_list_th_3">編集・削除</th>
-              </tr>
-            </thead>
-            <% @addresses.each do |address| %>
+          <thead>
+            <tr>
+              <th class="address_index_list_th_1">郵便番号</th>
+              <th class="address_index_list_th_2">住所</th>
+              <th class="address_index_list_th_1">宛名</th>
+              <th class="address_index_list_th_3">編集・削除</th>
+            </tr>
+          </thead>
+          <% @addresses.each do |address| %>
             <tbody>
               <tr>
                 <td class="address_index_list_td">〒<%= address.postcode %></td>
@@ -55,7 +55,7 @@
                 </td>
               </tr>
             </tbody>
-            <% end %>
+          <% end %>
         </table>
       </div>
     </div>
