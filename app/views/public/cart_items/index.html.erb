@@ -22,13 +22,9 @@
               <td class="cart_item_td"><%= attachment_image_tag cart_item.item, :image, :fill, 100, 60, format: 'jpeg', fallback: "no_image.png", class: "img" %><%= cart_item.item.name%></td>
               <td class="cart_item_td"><%= cart_item.item.add_tax_price.to_s(:delimited) %></td>
               <%= form_with model:cart_item, local:true do |f| %>
-                <td class="cart_item_td border-top border-white d-flex">
-                  <div>
+                <td class="cart_item_td">
                     <%= f.text_field :item_count, value: cart_item.item_count, size: 1 %>
-                  </div>
-                  <div>
                     <%= f.submit "変更", class: "btn btn-sm btn-primary" %>
-                  </div>
                 </td>
               <% end %>
               <td class="cart_item_td"><%= cart_item.sub_total_price.to_s(:delimited) %></td>
