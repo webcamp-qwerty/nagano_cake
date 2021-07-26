@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="row my-3">
+    <div class="ccol-lg-11 offset-lg-1">
+      <h4>会員一覧</h4>
+      <table class="table">
+        <thead class="thead-light">
+          <tr>
+            <th class='admin_customer_index_th_1'>会員ID</th>
+            <th class='admin_customer_index_th_2'>氏名</th>
+            <th class='admin_customer_index_th_2'>メールアドレス</th>
+            <th class='admin_customer_index_th_1'>ステータス</th>
+          </tr>
+        </thead>
+        <tbody>
+         <% @customers.each do |customer| %>
+          <tr class='admin_customer_index_tr'>
+           <td class='admin_customer_index_td'><%= customer.id %></td>
+           <td class='admin_customer_index_td'><%= link_to customer.last_name + customer.first_name,admin_customer_path(customer.id) %></td>
+           <td class='admin_customer_index_td'><%= customer.email%></td>
+           <td class='admin_customer_index_td'><%= customer.is_deleted ? '退会' : '有効' %></td>
+          </tr>
+        <% end %>
+        <%= paginate @customers %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

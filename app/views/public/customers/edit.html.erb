@@ -1,25 +1,42 @@
-<% form_with model:@customer, local:true do |f| %>
-<label>氏名</label>
-<%= f.text_field :last_name, placeholder:"姓"%>
-<%= f.text_field :first_name, placeholder:"名"%>
+<div class="container">
+  <div class="row my-3">
+    <div class="ccol-lg-11 offset-lg-1">
+      <%= form_with model:@customer, url:edit_customer_path, local:true do |f| %>
+      <table class="customer_table">
+        <tr>
+          <th class="customer_edit_th">氏名</th>
+          <td><%= f.text_field :last_name %></td>
+          <td><%= f.text_field :first_name %></td>
+        </tr>
+        <tr>
+          <th class="customer_edit_th">フリガナ</th>
+          <td><%= f.text_field :last_name_kana %></td>
+          <td><%= f.text_field :first_name_kana %></td>
+        </tr>
+         <tr>
+          <th class="customer_edit_th">郵便番号</th>
+          <td><%= f.text_field :postcode %></td>
+        </tr>
+          <th class="customer_edit_th">住所</th>
+          <td><%= f.text_field :address %></td>
+        </tr>
+          <th class="customer_edit_th">電話番号</th>
+          <td><%= f.text_field :phone_number %></td>
+        </tr>
+        <tr>
+          <th class="customer_edit_th">メールアドレス</th>
+          <td><%= f.text_field :email %></td>
+        </tr>
+      </table>
 
-<lavel>フリガナ</lavel>
-<%= f.text_field :last_name_kana, placeholder:"セイ" %>
-<%= f.text_field :first_name_kana, placeholder:"メイ" %>
-
-<lavel>住所</lavel>
-<%= f.text_field :address, placeholder:"住所" %>
-
-<lavel>電話番号</lavel>
-<%= f.text_field :phone_number, placeholder:"電話番号" %>
-
-<lavel>メールアドレス</lavel>
-<%= f.text_field :mail, placeholder:"メールアドレス" %>
-
-<%= f.submit "編集内容を保存" %>
-<% end %>
-
-<%= link_to "退会する", customer_confilm_path(@customer), method: :POST 
-
-
-
+      <div>
+        <%= f.submit "編集内容を保存",class: "btn btn-sm btn-success" %>
+        <% end %>
+      </div>
+      <br>
+      <div>
+        <%= link_to "退会する",customer_confirm_path , method: :POST, class: "btn btn-sm btn-danger" %>
+      </div>
+    </div>
+  </div>
+</div>

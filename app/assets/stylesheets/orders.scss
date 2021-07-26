@@ -1,3 +1,72 @@
 // Place all the styles related to the orders controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.order_list_item_names{
+  width:20%;
+}
+.order_list_payment{
+  width:10%;
+}
+.order_list_status{
+  width:12%;
+}
+.order_list_link{
+  width:10%;
+}
+.heading{
+  margin:30px 0;
+}
+.order_info_h{
+  margin-top:1%;
+  margin-bottom:1%;
+}
+// .order_info_address{
+//   width:25%;
+// }
+// .billing_info th,
+// .billing_info td
+// .billing_info tr{
+//   padding: 0% 5%;
+// }
+.box{
+  height:10%;
+}
+.order_contents{
+  margin-bottom:10%;
+  text-align:center;
+}
+.confirm_payment_text{
+  margin-bottom:3%;
+}
+.confirm_order_contents{
+  margin-bottom:5%;
+}
+.confirm_address{
+  margin-bottom:3%;
+}
+.confirm_botton{
+  text-align:center;
+  margin-bottom:5%;
+}
+
+
+.th_color{
+  background-color:#dee2e6;
+  text-align:center;
+}
+.thankyou{
+  text-align:center;
+  margin-top:20%;
+  margin-bottom:30%;
+}
+.billing_info{
+  text-align:center;
+}
+.order_list{
+  margin-bottom:10%;
+}
+.space {
+  margin-left:3%;
+}
