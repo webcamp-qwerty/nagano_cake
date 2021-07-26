@@ -45,9 +45,11 @@ Things you may want to cover:
   * css
   * ruby
 # 使用方法
+<pre><code>
 　$ git clone git@github.com:webcamp-qwerty/nagano_cake.git (SSH)  
   $ cd nagano_cake  
   $ bundle install  
   $ rails db:migrate  
   $ rails db:seed
   $ rails s
+<code></pre>
