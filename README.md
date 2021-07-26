@@ -45,7 +45,7 @@ Things you may want to cover:
   * css
   * ruby
 # 使用方法
-　$ git clone  (SSH)  
+　$ git clone git@github.com:webcamp-qwerty/nagano_cake.git (SSH)  
   $ cd nagano_cake  
   $ bundle install  
   $ rails db:migrate  
